@@ -14,60 +14,59 @@ http://isoredirect.centos.org/centos/6/isos/x86_64/
 
 ## Create the Virtual Box Image
 
-Open VirtualBox and click New.
+- Open VirtualBox and click New.
 
-Give the virtual machine a Name: centos-6.7-x86_64.
+- Give the virtual machine a Name: centos-6.7-x86_64.
 
-From the Type dropdown menu choose Linux.
+- From the Type dropdown menu choose Linux.
 
-From the Version dropdown menu choose Red Hat (64 bit).
+- From the Version dropdown menu choose Red Hat (64 bit).
 
-Under Memory size, leave RAM at 512 MB (Vagrant can change this on-the-fly later).
+- Under Memory size, leave RAM at 512 MB (Vagrant can change this on-the-fly later).
 
-Under Hard drive, select Create a virtual hard drive now, and click Create.
+- Under Hard drive, select Create a virtual hard drive now, and click Create.
 
-Under File location, leave the default name.
+- Under File location, leave the default name.
 
-Under File size, change the size to 40.00 GB.
+- Under File size, change the size to 40.00 GB.
 
-Under Hard drive file type, select VDI (VirtualBox Disk Image).
+- Under Hard drive file type, select VDI (VirtualBox Disk Image).
 
-Under Storage on physical hard drive, select Dynamically allocated, and click Create.
+- Under Storage on physical hard drive, select Dynamically allocated, and click Create.
 
-The virtual machine definition has now been created. Click the virtual machine name and click Settings.
+- The virtual machine definition has now been created. Click the virtual machine name and click Settings.
 
-Go to the Storage tab, click Empty just under Controller: IDE, then on the right hand side of the window click the CD icon, and select Choose a virtual CD/DVD disk file….
+- Go to the Storage tab, click Empty just under Controller: IDE, then on the right hand side of the window click the CD icon, and select Choose a virtual CD/DVD disk file….
 
-Navigate to where the CentOS-6.5-x86_64-bin-DVD1.iso was downloaded, select it, and click Open.
+- Navigate to where the CentOS-6.7-x86_64-bin-DVD1.iso was downloaded, select it, and click Open.
 
-Go to the Audio tab and uncheck Enable Audio.
+- Go to the Audio tab and uncheck Enable Audio.
 
-Go to the Ports tab, then go to the USB subtab, and uncheck Enable USB Controller.
+- Go to the Ports tab, then go to the USB subtab, and uncheck Enable USB Controller.
 
-Click Ok to close the Settings menu.
+- Click Ok to close the Settings menu.
 
-Finally, start up the virtual machine to begin installation.
+- Finally, start up the virtual machine to begin installation.
 
-## Install CentOS 6.5
-You can install the operating system manually or using a Kickstart Profile. I will be providing steps to install the operating system manually and using a Kickstart Profile.
+## Install CentOS 6.7
+Just follow the prompts and wipe everything. Make sure the root password is set to vagrant.
 
-Be aware that no where in the following steps do I install the VirtualBox Guest Additions. So far, I have not found a need for them. Feel free to install the VirtualBox Guest Additions if you need them.
+## Reboot and log in to the vm and type
 
-log in to the vm and type
 ```shell
 ifup eth0
 ```
+
 ```
 yum install -y openssh-clients man git vim wget curl ntp
 ```
 
-## then add port forwarding to the NAT adapter
-- name = ssh
-- protocal = TCP
-- hostip = Leave this empty
-- Host Port = 2222
-- Guest IP = Leave this empty
-- Guest Port = 22
+## then add port forwarding to the NAT adapter in the VirtualBox Interface
+- From your terminal run this command while the VM is running.
+
+```shell
+VBoxManage modifyvm "VM name" --natpf1 "guestssh,tcp,,2222,,22"
+```
 
 ssh into the running vm with this command 
 
