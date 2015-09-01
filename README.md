@@ -72,8 +72,14 @@ ssh into the running vm with this command
 ```shell
 ssh -p 2222 root@127.0.0.1
 ```
-## Once you are in copy and past this one liner to handle the rest. 
+## Once you are in copy and paste this one liner to handle the rest.
 
 ```shell
 git clone https://github.com/bradallenfisher/vagrant-box.git && cd vagrant-box && chmod 700 install.sh && ./install.sh
 ```
+
+## Now package the box
+```shell
+vagrant package --output /path/to/anywhere/centos-6.7-x86_64.box --base centos-6.7-x86_64
+```
+
