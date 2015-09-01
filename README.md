@@ -60,14 +60,15 @@ ifup eth0
 yum install -y openssh-clients man git vim wget curl ntp
 ```
 
-## then add port forwarding to the NAT adapter in the VirtualBox Interface
-- From your terminal run this command while the VM is running.
+## then add port forwarding to the NAT adapter from your local machine.
+
+- From your MAC terminal run this command while the VM is running.
 
 ```shell
 VBoxManage modifyvm "VM name" --natpf1 "guestssh,tcp,,2222,,22"
 ```
 
-ssh into the running vm with this command 
+- ssh into the running vm with this command 
 
 ```shell
 ssh -p 2222 root@127.0.0.1
@@ -82,4 +83,4 @@ git clone https://github.com/bradallenfisher/vagrant-box.git && cd vagrant-box &
 ```shell
 vagrant package --output /path/to/anywhere/centos-6.7-x86_64.box --base centos-6.7-x86_64
 ```
-
+## Share it now at atlas.hashicorp.com or anywhere you want!!! ;)
