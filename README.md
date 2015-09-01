@@ -78,6 +78,12 @@ ssh -p 2222 root@127.0.0.1
 ```shell
 git clone https://github.com/bradallenfisher/vagrant-box.git && cd vagrant-box && chmod 700 install.sh && ./install.sh
 ```
+## save the state of the box
+- log into your VirtualBox terminal and type
+
+```shell
+shutdown -h now
+```
 
 ## Now package the box
 ```shell
