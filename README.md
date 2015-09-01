@@ -81,6 +81,6 @@ git clone https://github.com/bradallenfisher/vagrant-box.git && cd vagrant-box &
 
 ## Now package the box
 ```shell
-vagrant package --output /path/to/anywhere/centos-6.7-x86_64.box --base centos-6.7-x86_64
+vagrant package --output centos-6.7-x86_64.box --base centos-6.7-x86_64
 ```
 ## Share it now at https://atlas.hashicorp.com/boxes/new or anywhere you want!!! ;)
