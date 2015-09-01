@@ -1,10 +1,9 @@
-# vagrant-box
-## The things you have to do to create a base centos vagrant box
+# Create a vagrant base box from scratch with guest additions for VirtualBox 5.
 
 - 1. Install VirtualBox
 - 2. Install Vagrant
 
-## Download This ISO 
+## Download This ISO
 
 http://mirror.thelinuxfix.com/CentOS/6.7/isos/x86_64/CentOS-6.7-x86_64-bin-DVD1.iso 
 
