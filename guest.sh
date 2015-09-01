@@ -1,16 +1,9 @@
-mkdir /media/VirtualBoxGuestAdditions
-mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+#!/bin/bash
 
-yum update kernel*
-reboot
-
-#after reboot uncomment these 
-#rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-#yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
-#uname -r
-## CentOS and Red Hat (RHEL) example ##
-#KERN_DIR=/usr/src/kernels/2.6.18-194.11.1.el5-x86_64
-## Export KERN_DIR ##
-#export KERN_DIR
-#cd /media/VirtualBoxGuestAdditions
-#./VBoxLinuxAdditions.run
+wget http://download.virtualbox.org/virtualbox/5.0.0_RC3/VBoxGuestAdditions_5.0.0_RC3.iso
+sudo mkdir /media/VBoxGuestAdditions
+sudo mount -o loop,ro VBoxGuestAdditions_4.3.8.iso /media/VBoxGuestAdditions
+sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+rm VBoxGuestAdditions_4.3.8.iso
+sudo umount /media/VBoxGuestAdditions
+sudo rmdir /media/VBoxGuestAdditions
