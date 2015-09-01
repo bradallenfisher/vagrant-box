@@ -1,4 +1,4 @@
-# Create a vagrant base box from scratch with guest additions for VirtualBox 5.
+# Create a vagrant base box from scratch with guest additions for VirtualBox 5 and vagrant 1.7.3+
 
 - 1. Install VirtualBox
 - 2. Install Vagrant
