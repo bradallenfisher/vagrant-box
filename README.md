@@ -1,4 +1,4 @@
-# Create a RHEL based vagrant base box from scratch with guest additions for VirtualBox 4.3 and vagrant 1.4+
+# Create a RHEL 6 based vagrant base box from scratch with guest additions for VirtualBox 4.3 and vagrant 1.4+
 
 - 1. Install VirtualBox
 - 2. Install Vagrant
