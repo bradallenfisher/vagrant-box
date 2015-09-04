@@ -1,12 +1,11 @@
 #!/bin/bash
 
-chkconfig ntpd on
-
-service ntpd stop
 ntpdate time.nist.gov
-service ntpd start
+systemctl start ntpd.service
+systemctl enable ntpd.service
+systemctl is-enabled ntpd.service
 
-chkconfig sshd on
+systemctl enable sshd.service
 
 chkconfig iptables off
 chkconfig ip6tables off
@@ -27,16 +26,19 @@ sed -i 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
 
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-cat << EOF1 > /etc/sysconfig/network-scripts/ifcfg-eth0
-DEVICE=eth0
+cat << EOF1 > /etc/sysconfig/network-scripts/ifcfg-enp0s3
 TYPE=Ethernet
-ONBOOT=yes
-NM_CONTROLLED=no
 BOOTPROTO=dhcp
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+NAME=enp0s3
+DEVICE=enp0s3
+ONBOOT=yes
 EOF1
 
 rm -f /etc/udev/rules.d/70-persistent-net.rules
-
+yum -y update
 yum clean all
 
 rm -rf /tmp/*
