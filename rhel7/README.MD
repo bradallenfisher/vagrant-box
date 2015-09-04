@@ -89,6 +89,8 @@ git clone https://github.com/bradallenfisher/vagrant-box.git && cd vagrant-box/r
 ```shell
 shutdown -h now
 ```
+###Remove the IDE from the VIRTUAL BOX INTERFACE
+- in settings click the IDE and click the minus in the bottom corner.
 
 ## Now package the box
 ```shell
